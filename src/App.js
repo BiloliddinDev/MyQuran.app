@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./Pages/Home";
+import { AllQuran } from "./Pages/AllQuran";
+import { Vaqt } from "./Pages/Vaqt";
+import { Layout } from "./components/Layout/index";
+import { Single } from "./Pages/Single";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/single" element={<AllQuran />} />
+          <Route path="/single/:id" element={<Single />} />
+          <Route path="/vaqt" element={<Vaqt />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.cards {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  padding: 18px;
+  background-color: rgba(255, 255, 255, 0.214);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  border: 3px solid transparent;
+  color: white;
+  &:hover {
+    transform: scale(1.1);
+    background-color: aliceblue;
+    border-color: rgb(18, 230, 18);
+    color: green;
+  }
+}

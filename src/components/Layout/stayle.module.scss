@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    background-image: url("https://t3.ftcdn.net/jpg/04/90/58/18/360_F_490581855_hJlOGEIskZjxOqOJ1vEFJNRJ4d0oHAm0.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+  }
+}
