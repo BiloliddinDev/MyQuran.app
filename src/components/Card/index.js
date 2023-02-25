@@ -1,4 +1,5 @@
 import React from "react";
+
 import cl from "./stayle.module.scss";
 
 export const Card = (props) => {
@@ -7,7 +8,6 @@ export const Card = (props) => {
       <h2>{props.num}</h2>
       <h2>{props.name}</h2>
       <h1 className={cl.card__heading}>{props.title}</h1>
-      <audio controls src={props.audyo}></audio>
     </div>
   );
 };

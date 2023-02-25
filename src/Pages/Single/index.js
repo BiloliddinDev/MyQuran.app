@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Card } from "../../components/Card";
 import { audyo, instanse, single } from "../../components/Utils";
 import cl from "./stayle.module.scss";
+import ReactAudioPlayer from "react-audio-player";
 
 export const Single = () => {
   const { id } = useParams();
@@ -30,12 +31,21 @@ export const Single = () => {
       <div className={cl.wrapper__folder}>
         {data?.map((e, i) => {
           return (
-            <Card
-              key={e}
-              title={e?.translation}
-              name={e?.arabic_text}
-              audyo={audio[i].audio}
-            />
+            <div>
+              <Card key={e} title={e?.translation} name={e?.arabic_text} />
+              <ReactAudioPlayer
+                style={{ backgroundColor: "#f1f1f1", width: "100%" }}
+                src={audio[i].audio}
+                controls
+                // autoPlay={audio[i + 1].audio}
+                // autoPlay={(e) => {
+                //   audio[i + 1].audio;
+                // }}
+                crossOrigin
+                controlsList
+                listenInterval
+              />
+            </div>
           );
         })}
       </div>
