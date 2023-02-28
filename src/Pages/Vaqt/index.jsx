@@ -20,14 +20,22 @@ export const Vaqt = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const bomdod = data?.times?.tong_saharlik.split(":").join("");
-  const peshin = data?.times?.peshin.split(":").join("");
-  const asr = data?.times?.asr.split(":").join("");
-  const shom = data?.times?.shom_iftor.split(":").join("");
-  const hufton = data?.times?.hufton.split(":").join("");
+  const bomdod = Number(data?.times?.tong_saharlik.substring(0, 2));
+  const peshin = Number(data?.times?.peshin.substring(0, 2));
+  const asr = Number(data?.times?.asr.substring(0, 2));
+  const shom = Number(data?.times?.shom_iftor.substring(0, 2));
+  const hufton = Number(data?.times?.hufton.substring(0, 2));
 
-  const hours = time.getHours().toString().padStart(2, "0");
-  const minutes = time.getMinutes().toString().padStart(2, "0");
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+
+  const soat = hours < 10 ? hours + 0 : hours;
+
+  console.log(hufton < hours && peshin > hours, "bomdod");
+  console.log(bomdod < hours && asr > hours, "peshin");
+  console.log(peshin < hours && shom > hours, "asr");
+  console.log(asr < hours && hufton > hours, "shom");
+  console.log(shom < hours && bomdod > hours, "hufton");
 
   return (
     <div className={cl.wrapper}>
@@ -42,10 +50,7 @@ export const Vaqt = () => {
         <div className={cl.wrapper__folder}>
           <h3
             style={{
-              backgroundColor:
-                hufton < `${hours}${minutes}` && peshin > `${hours}${minutes}`
-                  ? "red"
-                  : null,
+              backgroundColor: hufton < soat && peshin > soat ? "red" : null,
             }}
             className={cl.wrapper__data}
           >
@@ -53,10 +58,7 @@ export const Vaqt = () => {
           </h3>
           <h3
             style={{
-              backgroundColor:
-                bomdod < `${hours}${minutes}` && asr > `${hours}${minutes}`
-                  ? "red"
-                  : null,
+              backgroundColor: bomdod < soat && asr > soat ? "red" : null,
             }}
             className={cl.wrapper__data}
           >
@@ -64,10 +66,7 @@ export const Vaqt = () => {
           </h3>
           <h3
             style={{
-              backgroundColor:
-                peshin < `${hours}${minutes}` && shom > `${hours}${minutes}`
-                  ? "red"
-                  : null,
+              backgroundColor: peshin < soat && shom > soat ? "red" : null,
             }}
             className={cl.wrapper__data}
           >
@@ -75,10 +74,7 @@ export const Vaqt = () => {
           </h3>
           <h3
             style={{
-              backgroundColor:
-                asr < `${hours}${minutes}` && hufton > `${hours}${minutes}`
-                  ? "red"
-                  : null,
+              backgroundColor: asr < soat && hufton > soat ? "red" : null,
             }}
             className={cl.wrapper__data}
           >
@@ -86,10 +82,7 @@ export const Vaqt = () => {
           </h3>
           <h3
             style={{
-              backgroundColor:
-                hufton < `${hours}${minutes}` && peshin > `${hours}${minutes}`
-                  ? "red"
-                  : null,
+              backgroundColor: shom < soat && bomdod > soat ? "red" : null,
             }}
             className={cl.wrapper__data}
           >

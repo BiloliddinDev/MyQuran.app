@@ -10,12 +10,12 @@ export const clock = axios.create({
   timeout: 10000,
 });
 
-export const single = axios.create({
-  baseURL: "https://quranenc.com/",
+export const audyo = axios.create({
+  baseURL: "https://api.alquran.cloud/v1/surah",
   timeout: 10000,
 });
 
-export const audyo = axios.create({
-  baseURL: "https://api.alquran.cloud/v1/surah",
+export const arab = axios.create({
+  baseURL: "https://quranenc.com/api/v1",
   timeout: 10000,
 });

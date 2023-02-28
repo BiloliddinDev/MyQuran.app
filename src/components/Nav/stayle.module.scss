@@ -6,6 +6,11 @@
 
   &__box {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 50px 0;
     left: 40px;
   }
 
